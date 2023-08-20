@@ -1,0 +1,76 @@
+-- SET OPERATIONS
+
+CREATE DATABASE SET_OPERATIONS;
+
+SHOW DATABASES;
+
+USE SET_OPERATIONS;
+
+CREATE TABLE
+    DEPARTMENT1 (
+        EMP_ID INT,
+        EMP_NAME VARCHAR(255),
+        EMP_ROLE VARCHAR(255)
+    );
+
+SHOW TABLES;
+
+INSERT INTO DEPARTMENT1
+VALUES (EMP_ID, EMP_NAME, EMP_ROLE), (1, 'A', 'Engineer'), (2, 'B', 'Salesman'), (3, 'C', 'Manager'), (4, 'D', 'Salesman'), (5, 'E', 'Engineer');
+
+SELECT * FROM DEPARTMENT1;
+
+CREATE TABLE
+    DEPARTMENT2 (
+        EMP_ID INT,
+        EMP_NAME VARCHAR(255),
+        EMP_ROLE VARCHAR(255)
+    );
+
+SHOW TABLES;
+
+INSERT INTO DEPARTMENT2
+VALUES (EMP_ID, EMP_NAME, EMP_ROLE), (3, 'C', 'Manager'), (6, 'F', 'Marketing'), (7, 'G', 'Salesman');
+
+SELECT * FROM DEPARTMENT2;
+
+-- SET OPERATIONS
+
+-- List out all the employees in the company [UNION]
+
+SELECT * FROM DEPARTMENT1 UNION SELECT * FROM DEPARTMENT2;
+
+-- list out all the employees in all departments who work as salesman [UNION]
+
+SELECT *
+FROM DEPARTMENT1
+WHERE EMP_ROLE = 'Salesman'
+UNION
+SELECT *
+FROM DEPARTMENT2
+WHERE EMP_ROLE = 'Salesman';
+
+-- list out all the employees who work for both the departments. [INTERSECT]
+
+SELECT DEPARTMENT1.*
+FROM DEPARTMENT1
+    INNER JOIN DEPARTMENT2 ON DEPARTMENT1.EMP_ID = DEPARTMENT2.EMP_ID;
+
+-- OR
+
+SELECT
+    DEPARTMENT1.EMP_ID,
+    DEPARTMENT1.EMP_NAME,
+    DEPARTMENT1.EMP_ROLE
+FROM DEPARTMENT1
+    INNER JOIN DEPARTMENT2 USING(EMP_ID);
+
+-- List out all the employees working in deptl but not in dept2. [MINUS]
+
+SELECT DEPARTMENT1.*
+FROM DEPARTMENT1
+    LEFT JOIN DEPARTMENT2 USING(EMP_ID)
+WHERE
+    DEPARTMENT2.EMP_ID IS NULL;
+
+DROP DATABASE SET_OPERATIONS;
