@@ -1,4 +1,4 @@
--- [CHECK] ---------------------------------------------------------------------------------------
+-- [CHECK] -----------------------------------------------------------------------------------
 
 /*
  -> The check constraint is an integrity constraint that controls the value in a particular column.
