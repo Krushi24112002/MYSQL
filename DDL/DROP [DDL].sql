@@ -55,8 +55,10 @@ VALUES (
 
 SELECT * FROM PERSON;
 
+ALTER TABLE PERSON DROP COLUMN BIRTHDATE;
+
 -- DROP DATABASE Statement
 
--- The DROP DATABASE statement is used to drop an existing SQL database.
+-- The DROP DATABASE statement is used to drop an existing SQL database or column.
 
 DROP DATABASE IF EXISTS PERSON_DETAIL;
