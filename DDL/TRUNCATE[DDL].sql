@@ -79,7 +79,7 @@ SELECT * FROM CUSTOMER;
 
 -- the data from the table while keeping the table structure intact.
 
--- Unlike the DELETE statement, which removes rows one by one and can be rolled back, the TRUNCATE command
+-- Unlike the DELETE statement,which removes rows one by one and can be rolled back, the TRUNCATE command
 
 -- is faster and cannot be rolled back. It is often used when you want to quickly remove all data from a table.
 
