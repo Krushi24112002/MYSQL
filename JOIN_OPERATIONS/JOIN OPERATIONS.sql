@@ -207,7 +207,7 @@ FROM EMPLOYEE
 
 -- RIGHT JOIN [QUESTION :- 1]
 
--- List out att the projects atong with the employee's name and their respective attocated email ID.
+-- List out att the projects along with the employee's name and their respective attocated email ID.
 
 SELECT
     PROJECT.ID,
@@ -222,9 +222,48 @@ SELECT *
 FROM EMPLOYEE
     RIGHT JOIN PROJECT ON EMPLOYEE.ID = PROJECT.EMP_ID;
 
+-- FULL OUTER (JOIN) :
+
+-- The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
+
+-- Example of Full Outer Join.
+
+CREATE TABLE
+    Customers (
+        CustomerID INT PRIMARY KEY,
+        CustomerName VARCHAR(50)
+    );
+
+INSERT INTO
+    Customers (CustomerID, CustomerName)
+VALUES (1, 'Alice'), (2, 'Bob'), (3, 'Charlie');
+
+SELECT * FROM Customers;
+
+CREATE TABLE
+    Orders (
+        OrderID INT PRIMARY KEY,
+        CustomerID INT,
+        OrderDate DATE
+    );
+
+INSERT INTO
+    Orders (OrderID, CustomerID, OrderDate)
+VALUES (101, 1, '2023-09-01'), (102, 2, '2023-09-02'), (103, 1, '2023-09-03');
+
+SELECT * FROM Orders;
+
+SELECT
+    Customers.CustomerName,
+    Orders.OrderID,
+    Orders.OrderDate
+FROM Customers FULL
+    JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerID;
+
 -- CROSS JOIN
 
--- List out ait the combinations possible for the employee's name and projects that can exist.
+-- List out all the combinations possible for the employee's name and projects that can exist.
 
 SELECT
     EMPLOYEE.ID,
