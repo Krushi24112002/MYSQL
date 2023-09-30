@@ -195,17 +195,21 @@ SELECT * FROM EMPLOYEE WHERE LAST_NAME LIKE '_i%';
 
 -- [ORDER BY] ----------------------------------------------------------------------------
 
+-- The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+-- The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+
 SELECT * FROM EMPLOYEE ORDER BY SALARY DESC;
 
--- Descending Order
+-- [Descending Order]
 
 SELECT * FROM EMPLOYEE ORDER BY SALARY ASC;
 
--- Ascending Order
+-- [Ascending Order]
 
 -- [DISTINCT] -----------------------------------------------------------------------------
 
-SELECT DISTINCT(DEPARTMENT) FROM EMPLOYEE;
+SELECT DISTINCT DEPARTMENT FROM EMPLOYEE;
 
 -- [GROUP BY] ------------------------------------------------------------------------------
 
@@ -231,3 +235,78 @@ SELECT
 FROM EMPLOYEE
 GROUP BY DEPARTMENT
 HAVING COUNT(DEPARTMENT) > 1;
+
+CREATE TABLE
+    Employees (
+        EmployeeID INT PRIMARY KEY,
+        FirstName VARCHAR(50),
+        LastName VARCHAR(50),
+        Department VARCHAR(50),
+        Salary DECIMAL(10, 2)
+    );
+
+INSERT INTO
+    Employees (
+        EmployeeID,
+        FirstName,
+        LastName,
+        Department,
+        Salary
+    )
+VALUES (
+        1,
+        'John',
+        'Doe',
+        'Sales',
+        60000.00
+    ), (
+        2,
+        'Jane',
+        'Smith',
+        'HR',
+        55000.00
+    ), (
+        3,
+        'Alice',
+        'Johnson',
+        'Marketing',
+        52000.00
+    ), (
+        4,
+        'Bob',
+        'Brown',
+        'Sales',
+        61000.00
+    ), (
+        5,
+        'Eva',
+        'Williams',
+        'Finance',
+        58000.00
+    );
+
+-- AND Operator
+
+-- The AND operator is used to combine multiple conditions, and it returns true only if all the conditions evaluate to true.
+
+SELECT *
+FROM Employees
+WHERE
+    Department = 'Sales'
+    AND Salary > 50000;
+
+-- OR Operator
+
+-- The OR operator is used to combine multiple conditions, and it returns true if at least one of the conditions evaluates to true.
+
+SELECT *
+FROM Employees
+WHERE
+    Department = 'Sales'
+    OR Salary > 50000;
+
+-- NOT Operator
+
+-- The NOT operator is used to negate a condition, and it returns true if the condition is false.
+
+SELECT * FROM Employees WHERE NOT Department = 'HR';
