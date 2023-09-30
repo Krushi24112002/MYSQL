@@ -223,7 +223,7 @@ SELECT DISTINCT DEPARTMENT FROM EMPLOYEE;
 
 -- #NOTE# When You Use GROUP BY It's Compulsory To Use With Aggregation Functions.
 
--- SELECT, FROM, WHERE, GROUP BY, HAVING,sORDER BY   <-- Correct Order OF SQL.
+-- SELECT, FROM, WHERE, GROUP BY, HAVING,ORDER BY   <-- Correct Order OF SQL.
 
 SELECT
     DEPARTMENT,
