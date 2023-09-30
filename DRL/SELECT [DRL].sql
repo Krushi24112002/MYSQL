@@ -113,6 +113,10 @@ SELECT FIRST_NAME,LAST_NAME FROM EMPLOYEE WHERE DEPARTMENT = 'HR';
 
 -- [BETWEEN] --------------------------------------------------------------------------------
 
+-- The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+
+-- The BETWEEN operator is inclusive: begin and end values are included.
+
 SELECT * FROM EMPLOYEE WHERE YEAR_OF_EXPERIENCE BETWEEN 5 AND 7;
 
 -- [IN] --------------------------------------------------------------------------------------
@@ -187,7 +191,11 @@ SELECT * FROM ANIMAL WHERE LOCATION IS NUll;
 
 SELECT * FROM ANIMAL WHERE LOCATION IS NOT NULL;
 
--- [PATTERN SEARCHING/WILDCARD] ['%' , '_']  ------------------------------------------------------------------------------
+-- [PATTERN SEARCHING/WILDCARD][LIKE Operators] ['%' , '_']  ------------------------------------------------------------------------------
+
+-- The percent sign (%) represents zero, one, or multiple characters
+
+-- The underscore sign (_) represents one, single character
 
 SELECT * FROM EMPLOYEE WHERE FIRST_NAME LIKE '%i%';
 
