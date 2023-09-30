@@ -310,3 +310,7 @@ WHERE
 -- The NOT operator is used to negate a condition, and it returns true if the condition is false.
 
 SELECT * FROM Employees WHERE NOT Department = 'HR';
+
+-- TOP or LIMIT : TOP or LIMIT clause is used to specify the number of records to return.
+
+SELECT * FROM Employees LIMIT 3;
