@@ -15,8 +15,9 @@ CREATE TABLE
 
 SHOW TABLES;
 
-INSERT INTO DEPARTMENT1
-VALUES (EMP_ID, EMP_NAME, EMP_ROLE), (1, 'A', 'Engineer'), (2, 'B', 'Salesman'), (3, 'C', 'Manager'), (4, 'D', 'Salesman'), (5, 'E', 'Engineer');
+INSERT INTO
+    DEPARTMENT1 (EMP_ID, EMP_NAME, EMP_ROLE)
+VALUES (1, 'A', 'Engineer'), (2, 'B', 'Salesman'), (3, 'C', 'Manager'), (4, 'D', 'Salesman'), (5, 'E', 'Engineer');
 
 SELECT * FROM DEPARTMENT1;
 
@@ -29,8 +30,9 @@ CREATE TABLE
 
 SHOW TABLES;
 
-INSERT INTO DEPARTMENT2
-VALUES (EMP_ID, EMP_NAME, EMP_ROLE), (3, 'C', 'Manager'), (6, 'F', 'Marketing'), (7, 'G', 'Salesman');
+INSERT INTO
+    DEPARTMENT2 (EMP_ID, EMP_NAME, EMP_ROLE)
+VALUES (3, 'C', 'Manager'), (6, 'F', 'Marketing'), (7, 'G', 'Salesman');
 
 SELECT * FROM DEPARTMENT2;
 
