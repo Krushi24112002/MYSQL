@@ -4,16 +4,15 @@ SHOW DATABASES;
 
 USE EMPLOYEE_DETAILS;
 
-CREATE TABLE
-    EMPLOYEE (
-        EMP_ID INT PRIMARY KEY,
-        FIRST_NAME VARCHAR(50),
-        LAST_NAME VARCHAR(50),
-        SALARY DECIMAL(10, 2),
-        JOINING_DATE DATE,
-        DEPARTMENT VARCHAR(50),
-        YEAR_OF_EXPERIENCE INT
-    );
+CREATE TABLE EMPLOYEE (
+    EMP_ID INT PRIMARY KEY,
+    FIRST_NAME VARCHAR(50),
+    LAST_NAME VARCHAR(50),
+    SALARY DECIMAL(10, 2),
+    JOINING_DATE DATE,
+    DEPARTMENT VARCHAR(50),
+    YEAR_OF_EXPERIENCE INT
+);
 
 SHOW TABLES;
 
@@ -35,7 +34,8 @@ VALUES (
         '2021-01-15',
         'IT',
         3
-    ), (
+    ),
+    (
         2,
         'Alice',
         'Johnson',
@@ -43,7 +43,8 @@ VALUES (
         '2020-05-20',
         'Finance',
         5
-    ), (
+    ),
+    (
         3,
         'Michael',
         'Smith',
@@ -51,7 +52,8 @@ VALUES (
         '2019-08-10',
         'HR',
         4
-    ), (
+    ),
+    (
         4,
         'Emily',
         'Williams',
@@ -59,7 +61,8 @@ VALUES (
         '2022-03-01',
         'Marketing',
         2
-    ), (
+    ),
+    (
         5,
         'David',
         'Brown',
@@ -67,7 +70,8 @@ VALUES (
         '2023-06-12',
         'Sales',
         1
-    ), (
+    ),
+    (
         6,
         'Sophia',
         'Miller',
@@ -75,7 +79,8 @@ VALUES (
         '2018-11-25',
         'IT',
         6
-    ), (
+    ),
+    (
         7,
         'Daniel',
         'Jones',
@@ -83,7 +88,8 @@ VALUES (
         '2017-09-08',
         'Finance',
         7
-    ), (
+    ),
+    (
         8,
         'Olivia',
         'Taylor',
@@ -101,15 +107,31 @@ VALUES (
 
 -- SELECT
 
+SELECT 44 + 11;
+
+SELECT now();
+
+SELECT lcase('KRUSHI MONPARA');
+
+SELECT Ucase('krushi monpara');
+
 SELECT * FROM EMPLOYEE;
 
 -- Only Show Specific Columns.
 
-SELECT FIRST_NAME,LAST_NAME,SALARY FROM EMPLOYEE;
+SELECT FIRST_NAME, LAST_NAME, SALARY FROM EMPLOYEE;
 
 -- [WHERE] ----------------------------------------------------------------------------------
 
-SELECT FIRST_NAME,LAST_NAME FROM EMPLOYEE WHERE DEPARTMENT = 'HR';
+SELECT * FROM EMPLOYEE WHERE SALARY < 50000;
+
+SELECT
+    FIRST_NAME,
+    LAST_NAME,
+    DEPARTMENT
+FROM EMPLOYEE
+WHERE
+    DEPARTMENT = 'HR';
 
 -- [BETWEEN] --------------------------------------------------------------------------------
 
@@ -126,7 +148,14 @@ SELECT * FROM EMPLOYEE WHERE YEAR_OF_EXPERIENCE BETWEEN 5 AND 7;
 SELECT *
 FROM EMPLOYEE
 WHERE
-    DEPARTMENT IN('Marketing', 'HR', 'Finance');
+    DEPARTMENT IN ('Marketing', 'HR', 'Finance');
+
+-- [NOT IN] --------------------------------------------------------------------------------
+
+SELECT *
+FROM EMPLOYEE
+WHERE
+    DEPARTMENT NOT IN('Marketing', 'HR', 'Finance');
 
 -- [OR] ---------------------------------------------------------------------------------------
 
@@ -141,23 +170,17 @@ WHERE
 
 SELECT * FROM EMPLOYEE WHERE SALARY BETWEEN 55000 AND 63000;
 
---  [NOT IN] --------------------------------------------------------------------------------
-
-SELECT *
-FROM EMPLOYEE
-WHERE
-    DEPARTMENT NOT IN('Marketing', 'HR', 'Finance');
-
 -- -------------------------------------------------------------------------------------------
 
-CREATE TABLE
-    IF NOT EXISTS ANIMAL (
-        ANIMAL_ID INT PRIMARY KEY,
-        SPECIES VARCHAR(50),
-        NAME VARCHAR(50),
-        AGE INT,
-        LOCATION VARCHAR(100)
-    );
+CREATE TABLE IF NOT EXISTS ANIMAL (
+    ANIMAL_ID INT PRIMARY KEY,
+    SPECIES VARCHAR(50),
+    NAME VARCHAR(50),
+    AGE INT,
+    LOCATION VARCHAR(100)
+);
+
+SHOW TABLES;
 
 INSERT INTO
     ANIMAL (
@@ -167,19 +190,35 @@ INSERT INTO
         AGE,
         LOCATION
     )
-VALUES (1, 'Lion', 'Leo', 5, 'Savannah'), (
+VALUES (
+        1,
+        'Lion',
+        'Leo',
+        5,
+        'Savannah'
+    ),
+    (
         2,
         'Elephant',
         'Ellie',
         10,
         'Jungle'
-    ), (3, 'Giraffe', 'Gerry', 7, NULL), (
+    ),
+    (
+        3,
+        'Giraffe',
+        'Gerry',
+        7,
+        NULL
+    ),
+    (
         4,
         'Penguin',
         'Penny',
         2,
         'Antarctica'
-    ), (5, 'Tiger', 'Tigger', 3, NULL);
+    ),
+    (5, 'Tiger', 'Tiger', 3, NULL);
 
 SELECT * FROM ANIMAL;
 
@@ -207,13 +246,11 @@ SELECT * FROM EMPLOYEE WHERE LAST_NAME LIKE '_i%';
 
 -- The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
 
+-- [Descending Order]
 SELECT * FROM EMPLOYEE ORDER BY SALARY DESC;
 
--- [Descending Order]
-
-SELECT * FROM EMPLOYEE ORDER BY SALARY ASC;
-
 -- [Ascending Order]
+SELECT * FROM EMPLOYEE ORDER BY SALARY ASC;
 
 -- [DISTINCT] -----------------------------------------------------------------------------
 
@@ -225,35 +262,51 @@ SELECT DISTINCT DEPARTMENT FROM EMPLOYEE;
 
 -- SELECT, FROM, WHERE, GROUP BY, HAVING,ORDER BY   <-- Correct Order OF SQL.
 
-SELECT
-    DEPARTMENT,
-    COUNT(DEPARTMENT) AS TOTAL_DEPARTMENT
+SELECT * FROM EMPLOYEE;
+
+SELECT DEPARTMENT, COUNT(DEPARTMENT) AS TOTAL_DEPARTMENT
 FROM EMPLOYEE
-GROUP BY DEPARTMENT;
+GROUP BY
+    DEPARTMENT;
 
-SELECT DEPARTMENT ,AVG(SALARY) FROM EMPLOYEE GROUP BY DEPARTMENT;
-
-SELECT DEPARTMENT ,MAX(SALARY) FROM EMPLOYEE GROUP BY DEPARTMENT;
-
-SELECT DEPARTMENT ,MIN(SALARY) FROM EMPLOYEE GROUP BY DEPARTMENT;
-
--- [GROPU BY HAVING] -----------------------------------------------------------------------
-
-SELECT
-    DEPARTMENT,
-    COUNT(DEPARTMENT)
+SELECT DEPARTMENT, AVG(SALARY) AS EMP_AVG_SALARY
 FROM EMPLOYEE
-GROUP BY DEPARTMENT
-HAVING COUNT(DEPARTMENT) > 1;
+GROUP BY
+    DEPARTMENT;
 
-CREATE TABLE
-    Employees (
-        EmployeeID INT PRIMARY KEY,
-        FirstName VARCHAR(50),
-        LastName VARCHAR(50),
-        Department VARCHAR(50),
-        Salary DECIMAL(10, 2)
-    );
+SELECT DEPARTMENT, MAX(SALARY) AS EMP_MIN_SALARY
+FROM EMPLOYEE
+GROUP BY
+    DEPARTMENT;
+
+SELECT DEPARTMENT, MIN(SALARY) AS EMP_MAX_SALARY
+FROM EMPLOYEE
+GROUP BY
+    DEPARTMENT;
+
+SELECT DEPARTMENT, SUM(SALARY) AS EMP_SUM_SALARY
+FROM EMPLOYEE
+GROUP BY
+    DEPARTMENT;
+
+-- [GROUP BY HAVING] -----------------------------------------------------------------------
+
+SELECT DEPARTMENT, COUNT(DEPARTMENT)
+FROM EMPLOYEE
+GROUP BY
+    DEPARTMENT
+HAVING
+    COUNT(DEPARTMENT) > 1;
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(10, 2)
+);
+
+SHOW TABLES;
 
 INSERT INTO
     Employees (
@@ -269,25 +322,29 @@ VALUES (
         'Doe',
         'Sales',
         60000.00
-    ), (
+    ),
+    (
         2,
         'Jane',
         'Smith',
         'HR',
         55000.00
-    ), (
+    ),
+    (
         3,
         'Alice',
         'Johnson',
         'Marketing',
         52000.00
-    ), (
+    ),
+    (
         4,
         'Bob',
         'Brown',
         'Sales',
         61000.00
-    ), (
+    ),
+    (
         5,
         'Eva',
         'Williams',
@@ -324,3 +381,5 @@ SELECT * FROM Employees WHERE NOT Department = 'HR';
 -- TOP or LIMIT : TOP or LIMIT clause is used to specify the number of records to return.
 
 SELECT * FROM Employees LIMIT 3;
+
+DROP DATABASE EMPLOYEE_DETAILS;
