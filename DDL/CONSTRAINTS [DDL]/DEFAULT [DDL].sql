@@ -1,8 +1,8 @@
 -- [DEFAULT] --------------------------------------------------------------------------
 
 /*
- Set DEFAULT Values in DATABASE.   
- */
+Set DEFAULT Values in DATABASE.   
+*/
 
 CREATE DATABASE IF NOT EXISTS EMP_DETAIL;
 
@@ -10,22 +10,21 @@ SHOW DATABASES;
 
 USE EMP_DETAIL;
 
-CREATE TABLE
-    EMPLOYEE_COMPANY (
-        EMP_ID INT PRIMARY KEY,
-        -- EMP_ID IS A PRIMARY KEY.
-        FIRST_NAME VARCHAR(50),
-        LAST_NAME VARCHAR(50),
-        SALARY DECIMAL(10, 2) NOT NULL DEFAULT 0,
-        JOINING_DATE DATE,
-        DEPARTMENT VARCHAR(50),
-        YEAR_OF_EXPERIENCE INT
-    );
+CREATE TABLE EMPLOYEE_COMPANY (
+    EMP_ID INT PRIMARY KEY,
+    -- EMP_ID IS A PRIMARY KEY.
+    FIRST_NAME VARCHAR(50),
+    LAST_NAME VARCHAR(50),
+    SALARY DECIMAL(10, 2) NOT NULL DEFAULT 0,
+    JOINING_DATE DATE,
+    DEPARTMENT VARCHAR(50),
+    YEAR_OF_EXPERIENCE INT
+);
 
 SHOW TABLES;
 
 INSERT INTO
-    EMPLOYEE_COMPANY(
+    EMPLOYEE_COMPANY (
         EMP_ID,
         FIRST_NAME,
         LAST_NAME,
@@ -42,7 +41,8 @@ VALUES (
         '2021-01-15',
         'IT',
         3
-    ), (
+    ),
+    (
         2,
         'Alice',
         'Johnson',
@@ -50,7 +50,8 @@ VALUES (
         '2020-05-20',
         'Finance',
         5
-    ), (
+    ),
+    (
         3,
         'Michael',
         'Smith',
@@ -58,7 +59,8 @@ VALUES (
         '2019-08-10',
         'HR',
         4
-    ), (
+    ),
+    (
         4,
         'Emily',
         'Williams',
@@ -66,7 +68,8 @@ VALUES (
         '2022-03-01',
         'Marketing',
         2
-    ), (
+    ),
+    (
         5,
         'David',
         'Brown',
@@ -74,7 +77,8 @@ VALUES (
         '2023-06-12',
         'Sales',
         1
-    ), (
+    ),
+    (
         6,
         'Sophia',
         'Miller',
@@ -82,7 +86,8 @@ VALUES (
         '2018-11-25',
         'IT',
         6
-    ), (
+    ),
+    (
         7,
         'Daniel',
         'Jones',
@@ -90,7 +95,8 @@ VALUES (
         '2017-09-08',
         'Finance',
         7
-    ), (
+    ),
+    (
         8,
         'Olivia',
         'Taylor',
@@ -101,7 +107,7 @@ VALUES (
     );
 
 INSERT INTO
-    EMPLOYEE_COMPANY(
+    EMPLOYEE_COMPANY (
         EMP_ID,
         FIRST_NAME,
         LAST_NAME,
@@ -119,3 +125,5 @@ VALUES (
     );
 
 SELECT * FROM EMPLOYEE_COMPANY;
+
+DROP DATABASE EMP_DETAIL;
