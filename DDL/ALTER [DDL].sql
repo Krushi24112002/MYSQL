@@ -6,14 +6,15 @@ CREATE DATABASE CUSTOMER_DETAILS;
 
 USE CUSTOMER_DETAILS;
 
-CREATE TABLE
-    CUSTOMER (
-        CUSTOMER_ID INT PRIMARY KEY,
-        FIRST_NAME VARCHAR(50),
-        LAST_NAME VARCHAR(50),
-        EMAIL VARCHAR(100),
-        PHONE_NUMBER VARCHAR(20)
-    );
+SHOW DATABASES;
+
+CREATE TABLE CUSTOMER (
+    CUSTOMER_ID INT PRIMARY KEY,
+    FIRST_NAME VARCHAR(50),
+    LAST_NAME VARCHAR(50),
+    EMAIL VARCHAR(100),
+    PHONE_NUMBER VARCHAR(20)
+);
 
 SHOW TABLES;
 
@@ -31,31 +32,36 @@ VALUES (
         'Johnson',
         'alice@example.com',
         '555-1234'
-    ), (
+    ),
+    (
         2,
         'Bob',
         'Smith',
         'bob@example.com',
         '555-5678'
-    ), (
+    ),
+    (
         3,
         'Charlie',
         'Williams',
         'charlie@example.com',
         '555-9876'
-    ), (
+    ),
+    (
         4,
         'David',
         'Brown',
         'david@example.com',
         '555-2345'
-    ), (
+    ),
+    (
         5,
         'Eva',
         'Miller',
         'eva@example.com',
         '555-6789'
-    ), (
+    ),
+    (
         6,
         'Frank',
         'Davis',
@@ -69,6 +75,8 @@ SELECT * FROM CUSTOMER;
 
 ALTER TABLE CUSTOMER ADD CITY VARCHAR(50);
 
+SELECT * FROM CUSTOMER;
+
 UPDATE CUSTOMER SET CITY = "New York" WHERE CUSTOMER_ID = 1;
 
 UPDATE CUSTOMER SET CITY = "SURAT" WHERE CUSTOMER_ID = 2;
@@ -80,6 +88,8 @@ UPDATE CUSTOMER SET CITY = "MEHSANA" WHERE CUSTOMER_ID = 4;
 UPDATE CUSTOMER SET CITY = "SURAT" WHERE CUSTOMER_ID = 5;
 
 UPDATE CUSTOMER SET CITY = "VAPI" WHERE CUSTOMER_ID = 6;
+
+SELECT * FROM CUSTOMER;
 
 -- ALTER TABLE - MODIFY COLUMN
 
@@ -107,7 +117,7 @@ SHOW TABLES;
 
 -- To delete a column in a table
 
-ALTER TABLE CUSTOMER_INFORMATION DROP COLUMN CITY;
+ALTER TABLE CUSTOMER_INFORMATION DROP COLUMN CUSTOMER_CITY;
 
 SELECT * FROM CUSTOMER_INFORMATION;
 

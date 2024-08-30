@@ -10,15 +10,14 @@ SHOW DATABASES;
 
 SHOW TABLES;
 
-CREATE TABLE
-    CUSTOMER (
-        CUSTOMER_ID INT PRIMARY KEY,
-        FIRST_NAME VARCHAR(50),
-        LAST_NAME VARCHAR(50),
-        EMAIL VARCHAR(100),
-        PHONE_NUMBER VARCHAR(20),
-        CITY VARCHAR(50)
-    );
+CREATE TABLE CUSTOMER (
+    CUSTOMER_ID INT PRIMARY KEY,
+    FIRST_NAME VARCHAR(50),
+    LAST_NAME VARCHAR(50),
+    EMAIL VARCHAR(100),
+    PHONE_NUMBER VARCHAR(20),
+    CITY VARCHAR(50)
+);
 
 INSERT INTO
     CUSTOMER (
@@ -36,35 +35,40 @@ VALUES (
         'alice@example.com',
         '555-1234',
         'Berlin'
-    ), (
+    ),
+    (
         2,
         'Bob',
         'Smith',
         'bob@example.com',
         '555-5678',
         'Munich'
-    ), (
+    ),
+    (
         3,
         'Charlie',
         'Williams',
         'charlie@example.com',
         '555-9876',
         'Hamburg'
-    ), (
+    ),
+    (
         4,
         'David',
         'Brown',
         'david@example.com',
         '555-2345',
         'Leipzig'
-    ), (
+    ),
+    (
         5,
         'Eva',
         'Miller',
         'eva@example.com',
         '555-6789',
         'Stuttgart'
-    ), (
+    ),
+    (
         6,
         'Frank',
         'Davis',
@@ -84,3 +88,8 @@ SELECT * FROM CUSTOMER;
 -- is faster and cannot be rolled back. It is often used when you want to quickly remove all data from a table.
 
 TRUNCATE TABLE CUSTOMER;
+
+-- after TRUNCATE all table data was remove only Structure was remain.
+SELECT * FROM CUSTOMER;
+
+DROP DATABASE CUSTOMER_DETAILS;

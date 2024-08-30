@@ -1,3 +1,4 @@
+-- Active: 1724844541211@@127.0.0.1@3306@oracle
 -- The CREATE DATABASE statement is used to create a new SQL database or Table.
 
 CREATE DATABASE IF NOT EXISTS COMPANY_EMPLOYEE;
@@ -56,3 +57,5 @@ VALUES (
     );
 
 SELECT * FROM EMPLOYEE;
+
+DROP DATABASE IF EXISTS COMPANY_EMPLOYEE;

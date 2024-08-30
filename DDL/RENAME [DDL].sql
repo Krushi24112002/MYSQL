@@ -2,15 +2,14 @@ CREATE DATABASE PERSON_DETAILS;
 
 USE PERSON_DETAILS;
 
-CREATE TABLE
-    PERSON(
-        PERSON_ID INT PRIMARY KEY,
-        FIRST_NAME VARCHAR(50),
-        LAST_NAME VARCHAR(50),
-        BIRTHDATE DATE,
-        GENDER VARCHAR(10),
-        CITY VARCHAR(50)
-    );
+CREATE TABLE PERSON (
+    PERSON_ID INT PRIMARY KEY,
+    FIRST_NAME VARCHAR(50),
+    LAST_NAME VARCHAR(50),
+    BIRTHDATE DATE,
+    GENDER VARCHAR(10),
+    CITY VARCHAR(50)
+);
 
 INSERT INTO
     PERSON (
@@ -28,28 +27,32 @@ VALUES (
         '1990-05-15',
         'Male',
         'Berlin'
-    ), (
+    ),
+    (
         2,
         'Jane',
         'Smith',
         '1985-10-22',
         'Female',
         'Surat'
-    ), (
+    ),
+    (
         3,
         'Michael',
         'Johnson',
         '1978-03-08',
         'Male',
         'New York'
-    ), (
+    ),
+    (
         4,
         'Emily',
         'Williams',
         '1995-12-03',
         'Female',
         'Peris'
-    ), (
+    ),
+    (
         5,
         'David',
         'Brown',
@@ -65,3 +68,11 @@ SELECT * FROM PERSON;
 ALTER TABLE PERSON RENAME COLUMN CITY TO PERSON_CITY;
 
 SELECT * FROM PERSON;
+
+ALTER TABLE PERSON RENAME TO PERSON_DETAILS;
+
+SHOW TABLES;
+
+SELECT * FROM PERSON;
+
+DROP DATABASE PERSON_DETAILS;
