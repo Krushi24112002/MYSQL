@@ -1,13 +1,13 @@
 -- #NOTE# PRIMARY KEY IS NOT NULL , UNIQUE AND ONLY ONE PER TABLE.
 
 /*
- # Rules for Primary key
- 1. The primary key column value must be unique.
- 2. Each table can contain only one primary key.
- 3. The primary key column cannot be null or empty.
- 4. MySQL does not allow us to insert a new row with the existing primary key.
- 5. It is recommended to use INT or BIGINT data type for the primary key column.
- */
+# Rules for Primary key
+1. The primary key column value must be unique.
+2. Each table can contain only one primary key.
+3. The primary key column cannot be null or empty.
+4. MySQL does not allow us to insert a new row with the existing primary key.
+5. It is recommended to use INT or BIGINT data type for the primary key column.
+*/
 
 CREATE DATABASE IF NOT EXISTS EMP_DETAILS;
 
@@ -15,22 +15,21 @@ SHOW DATABASES;
 
 USE EMP_DETAILS;
 
-CREATE TABLE
-    EMPLOYEE (
-        EMP_ID INT PRIMARY KEY,
-        -- EMP_ID IS A PRIMARY KEY.
-        FIRST_NAME VARCHAR(50),
-        LAST_NAME VARCHAR(50),
-        SALARY DECIMAL(10, 2),
-        JOINING_DATE DATE,
-        DEPARTMENT VARCHAR(50),
-        YEAR_OF_EXPERIENCE INT
-    );
+CREATE TABLE EMPLOYEE (
+    EMP_ID INT PRIMARY KEY,
+    -- EMP_ID IS A PRIMARY KEY.
+    FIRST_NAME VARCHAR(50),
+    LAST_NAME VARCHAR(50),
+    SALARY DECIMAL(10, 2),
+    JOINING_DATE DATE,
+    DEPARTMENT VARCHAR(50),
+    YEAR_OF_EXPERIENCE INT
+);
 
 SHOW TABLES;
 
 INSERT INTO
-    EMPLOYEE(
+    EMPLOYEE (
         EMP_ID,
         FIRST_NAME,
         LAST_NAME,
@@ -47,7 +46,8 @@ VALUES (
         '2021-01-15',
         'IT',
         3
-    ), (
+    ),
+    (
         2,
         'Alice',
         'Johnson',
@@ -55,7 +55,8 @@ VALUES (
         '2020-05-20',
         'Finance',
         5
-    ), (
+    ),
+    (
         3,
         'Michael',
         'Smith',
@@ -63,7 +64,8 @@ VALUES (
         '2019-08-10',
         'HR',
         4
-    ), (
+    ),
+    (
         4,
         'Emily',
         'Williams',
@@ -71,7 +73,8 @@ VALUES (
         '2022-03-01',
         'Marketing',
         2
-    ), (
+    ),
+    (
         5,
         'David',
         'Brown',
@@ -79,7 +82,8 @@ VALUES (
         '2023-06-12',
         'Sales',
         1
-    ), (
+    ),
+    (
         6,
         'Sophia',
         'Miller',
@@ -87,7 +91,8 @@ VALUES (
         '2018-11-25',
         'IT',
         6
-    ), (
+    ),
+    (
         7,
         'Daniel',
         'Jones',
@@ -95,7 +100,8 @@ VALUES (
         '2017-09-08',
         'Finance',
         7
-    ), (
+    ),
+    (
         8,
         'Olivia',
         'Taylor',
@@ -107,4 +113,4 @@ VALUES (
 
 SELECT * FROM EMPLOYEE;
 
-DROP DATABASE EMP_DETAILS;
+DROP DATABASE IF EXISTS EMP_DETAILS;
