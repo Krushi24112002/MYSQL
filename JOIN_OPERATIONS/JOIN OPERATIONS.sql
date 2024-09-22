@@ -1,6 +1,4 @@
-CREATE DATABASE JOIN_TEST;
-
-DROP DATABASE JOIN_TEST;
+CREATE DATABASE IF NOT EXISTS JOIN_TEST;
 
 SHOW DATABASES;
 
@@ -246,6 +244,8 @@ CREATE TABLE Customers (
     CustomerName VARCHAR(250)
 );
 
+SHOW TABLES;
+
 INSERT INTO
     Customers (CustomerID, CustomerName)
 VALUES (1, 'Alice'),
@@ -259,6 +259,8 @@ CREATE TABLE Orders (
     CustomerID INT,
     OrderDate DATE
 );
+
+SHOW TABLES;
 
 INSERT INTO
     Orders (
@@ -306,4 +308,4 @@ WHERE
 
 -- Employee Details Working in More Than 1 Projects.
 
-DROP DATABASE JOIN_TEST;
+DROP DATABASE IF EXISTS JOIN_TEST;
