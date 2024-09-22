@@ -1,9 +1,9 @@
 -- [CHECK] -----------------------------------------------------------------------------------
 
 /*
- -> The check constraint is an integrity constraint that controls the value in a particular column.
- -> It ensures the inserted or updated value in a column must be matched with the given condition.
- */
+-> The check constraint is an integrity constraint that controls the value in a particular column.
+-> It ensures the inserted or updated value in a column must be matched with the given condition.
+*/
 
 CREATE DATABASE IF NOT EXISTS EMPLOYEE_DETAILS;
 
@@ -11,23 +11,22 @@ SHOW DATABASES;
 
 USE EMPLOYEE_DETAILS;
 
-CREATE TABLE
-    EMPLOYEES (
-        EMP_ID INT PRIMARY KEY,
-        -- EMP_ID IS A PRIMARY KEY.
-        FIRST_NAME VARCHAR(50),
-        LAST_NAME VARCHAR(50),
-        SALARY DECIMAL(10, 2),
-        CONSTRAINT EMP_SALARY CHECK (SALARY > 15000),
-        JOINING_DATE DATE,
-        DEPARTMENT VARCHAR(50),
-        YEAR_OF_EXPERIENCE INT
-    );
+CREATE TABLE EMPLOYEES (
+    EMP_ID INT PRIMARY KEY,
+    -- EMP_ID IS A PRIMARY KEY.
+    FIRST_NAME VARCHAR(50),
+    LAST_NAME VARCHAR(50),
+    SALARY DECIMAL(10, 2),
+    CONSTRAINT EMP_SALARY CHECK (SALARY > 15000),
+    JOINING_DATE DATE,
+    DEPARTMENT VARCHAR(50),
+    YEAR_OF_EXPERIENCE INT
+);
 
 SHOW TABLES;
 
 INSERT INTO
-    EMPLOYEES(
+    EMPLOYEES (
         EMP_ID,
         FIRST_NAME,
         LAST_NAME,
@@ -44,7 +43,8 @@ VALUES (
         '2021-01-15',
         'IT',
         3
-    ), (
+    ),
+    (
         2,
         'Alice',
         'Johnson',
@@ -52,7 +52,8 @@ VALUES (
         '2020-05-20',
         'Finance',
         5
-    ), (
+    ),
+    (
         3,
         'Michael',
         'Smith',
@@ -60,7 +61,8 @@ VALUES (
         '2019-08-10',
         'HR',
         4
-    ), (
+    ),
+    (
         4,
         'Emily',
         'Williams',
@@ -68,7 +70,8 @@ VALUES (
         '2022-03-01',
         'Marketing',
         2
-    ), (
+    ),
+    (
         5,
         'David',
         'Brown',
@@ -76,7 +79,8 @@ VALUES (
         '2023-06-12',
         'Sales',
         1
-    ), (
+    ),
+    (
         6,
         'Sophia',
         'Miller',
@@ -84,7 +88,8 @@ VALUES (
         '2018-11-25',
         'IT',
         6
-    ), (
+    ),
+    (
         7,
         'Daniel',
         'Jones',
@@ -92,7 +97,8 @@ VALUES (
         '2017-09-08',
         'Finance',
         7
-    ), (
+    ),
+    (
         8,
         'Olivia',
         'Taylor',
@@ -104,4 +110,4 @@ VALUES (
 
 SELECT * FROM EMPLOYEES;
 
-DROP DATABASE EMPLOYEE_DETAILS;
+DROP DATABASE IF EXISTS EMPLOYEE_DETAILS;
